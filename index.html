@@ -6,11 +6,16 @@
   <title>Perfumes Bagués - Yesica Yelcich</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    body {
+      background-color: magenta;
+      color: white; /* Para que el texto sea legible */
+    }
     .glass {
       background: rgba(255,255,255,0.68);
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
       backdrop-filter: blur(7px);
       border-radius: 1rem;
+      color: black; /* Para que los textos en las tarjetas sigan legibles */
     }
     .fade-in {
       animation: fadeIn 1s ease;
@@ -21,29 +26,29 @@
     }
   </style>
 </head>
-<body class="bg-gradient-to-bl from-[#e7e6e1] via-[#f7f3ef] to-[#fae6ee] min-h-screen flex flex-col items-center">
+<body class="min-h-screen flex flex-col items-center">
 
   <!-- Header/Hero -->
-  <section class="w-full relative flex flex-col items-center justify-center py-10 bg-gradient-to-r from-[#d8c2ff] to-[#eeecf7] shadow-lg">
-    <h1 class="text-5xl md:text-6xl font-extrabold text-[#3f2569] drop-shadow-lg mb-4 fade-in tracking-tight">Perfumes Bagués</h1>
-    <p class="text-xl md:text-2xl text-[#7e6995] font-light mb-2 fade-in">Fragancias internacionales y exclusivas</p>
-    <p class="text-md text-[#583f6a]">by Yesica Yelcich</p>
+  <section class="w-full relative flex flex-col items-center justify-center py-10 bg-pink-700 shadow-lg">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4 fade-in tracking-tight">Perfumes Bagués</h1>
+    <p class="text-xl md:text-2xl text-white font-light mb-2 fade-in">Fragancias internacionales y exclusivas</p>
+    <p class="text-md text-white">by Yesica Yelcich</p>
     <button 
       id="verCatalogoBtn"
-      class="mt-7 px-8 py-3 text-lg rounded-xl bg-[#11101a] hover:bg-[#3f2569] text-white shadow-lg transition font-bold fade-in"
+      class="mt-7 px-8 py-3 text-lg rounded-xl bg-black hover:bg-pink-900 text-white shadow-lg transition font-bold fade-in"
     >
       Ver catálogo
     </button>
   </section>
 
-  <!-- Catálogo Opciones (Hidden by default) -->
+  <!-- Catálogo Opciones -->
   <div id="catalogoOpciones" class="fixed top-0 left-0 z-40 w-full h-full flex items-center justify-center bg-black bg-opacity-30 hidden fade-in">
     <div class="glass p-8 flex flex-col items-center gap-6 shadow-xl relative min-w-[320px]">
-      <h2 class="text-2xl font-bold text-[#3f2569] mb-4">Elige una opción</h2>
-      <a href="https://catalogo.bagues.net/C0825/page/1" target="_blank" class="px-6 py-3 rounded-lg bg-[#6e42d8] text-white font-semibold hover:bg-[#3f2569] transition text-lg w-full text-center mb-2">Ver Catálogo Completo</a>
-      <a href="https://catalogo.bagues.net/Unlock-C0825" target="_blank" class="px-6 py-3 rounded-lg bg-[#ff5498] text-white font-semibold hover:bg-[#de3d83] transition text-lg w-full text-center">Desbloquear Ofertas Exclusivas</a>
+      <h2 class="text-2xl font-bold text-black mb-4">Elige una opción</h2>
+      <a href="https://catalogo.bagues.net/C0825/page/1" target="_blank" class="px-6 py-3 rounded-lg bg-pink-600 text-white font-semibold hover:bg-pink-800 transition text-lg w-full text-center mb-2">Ver Catálogo Completo</a>
+      <a href="https://catalogo.bagues.net/Unlock-C0825" target="_blank" class="px-6 py-3 rounded-lg bg-pink-400 text-white font-semibold hover:bg-pink-600 transition text-lg w-full text-center">Desbloquear Ofertas Exclusivas</a>
       <button onclick="document.getElementById('catalogoOpciones').classList.add('hidden');"
-          class="absolute top-3 right-4 text-[#3f2569] text-2xl font-bold hover:text-[#ff5498] transition"
+          class="absolute top-3 right-4 text-black text-2xl font-bold hover:text-pink-600 transition"
           aria-label="Cerrar"
         >&times;</button>
     </div>
@@ -51,48 +56,45 @@
 
   <!-- Destacados -->
   <main class="container mx-auto px-4 py-14 flex flex-col gap-10 fade-in">
-    <h2 class="text-3xl font-semibold text-center text-[#474156] mb-10">Perfumes Destacados</h2>
+    <h2 class="text-3xl font-semibold text-center text-white mb-10">Perfumes Destacados</h2>
     <div class="grid md:grid-cols-3 gap-10">
 
       <!-- Marsella -->
-      <div class="bg-white glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105">
+      <div class="glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105">
         <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c55dc3f9-d609-4971-9b79-fb7d6e5e3243.png" 
-          alt="Perfume Bagués Marsella. Botella rectangular de vidrio transparente con tapa cromada brillante, fragancia color rosa claro, junto a la caja con diseño de collage de palabras en blanco y negro, acentos rojos y textura moderna." 
+          alt="Perfume Bagués Marsella" 
           class="mb-4 w-48 h-56 object-cover rounded-md bg-gray-200"
-          onerror="this.onerror=null;this.src='https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/967af7ec-e6bb-470b-a1d2-7f3e377a529e.png';"
         />
-        <h3 class="text-xl font-semibold mt-3 text-[#6e42d8]">Marsella</h3>
-        <p class="text-base text-slate-600 my-2 text-center">Fresco, sofisticado y moderno. Una fragancia internacional inspirada en las luces de Marsella.</p>
+        <h3 class="text-xl font-semibold mt-3 text-pink-700">Marsella</h3>
+        <p class="text-base text-black my-2 text-center">Fresco, sofisticado y moderno. Una fragancia internacional inspirada en las luces de Marsella.</p>
       </div>
 
       <!-- Milán -->
-      <div class="bg-white glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105">
+      <div class="glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105">
         <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2df4e0cc-d42f-4c21-baba-a1565390c572.png"
-          alt="Perfume Bagués Milán. Botella rectangular de vidrio transparente con tapa cromada y líquido ámbar claro, junto a caja con motivos de encaje negro elegante y tipografía manuscrita blanca sobre negro." 
+          alt="Perfume Bagués Milán" 
           class="mb-4 w-48 h-56 object-cover rounded-md bg-gray-200"
-          onerror="this.onerror=null;this.src='https://placehold.co/400x340/eeeeee/444444?text=Imagen+no+disponible';"
         />
-        <h3 class="text-xl font-semibold mt-3 text-[#6e42d8]">Milán</h3>
-        <p class="text-base text-slate-600 my-2 text-center">Elegancia y distinción italiana en cada gota. Inspirado en la moda y tendencias de Milán.</p>
+        <h3 class="text-xl font-semibold mt-3 text-pink-700">Milán</h3>
+        <p class="text-base text-black my-2 text-center">Elegancia y distinción italiana en cada gota. Inspirado en la moda y tendencias de Milán.</p>
       </div>
 
       <!-- Mykonos -->
-      <div class="bg-white glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105">
+      <div class="glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105">
         <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/10bf1c85-0ac3-4568-803b-4c48ec0d5943.png"
-          alt="Perfume Bagués Mykonos. Botella rectangular de vidrio transparente y tapa cromada, fragancia color amarillo claro junto a caja con diseño minimalista floral en tonos beige y dorados." 
+          alt="Perfume Bagués Mykonos" 
           class="mb-4 w-48 h-56 object-cover rounded-md bg-gray-200"
-          onerror="this.onerror=null;this.src='https://placehold.co/400x340/eeeeee/444444?text=Imagen+no+disponible';"
         />
-        <h3 class="text-xl font-semibold mt-3 text-[#6e42d8]">Mykonos</h3>
-        <p class="text-base text-slate-600 my-2 text-center">Refrescante y envolvente, inspirado en la brisa de las islas griegas. Una fragancia luminosa y pura.</p>
+        <h3 class="text-xl font-semibold mt-3 text-pink-700">Mykonos</h3>
+        <p class="text-base text-black my-2 text-center">Refrescante y envolvente, inspirado en la brisa de las islas griegas. Una fragancia luminosa y pura.</p>
       </div>
     </div>
   </main>
 
   <!-- Contact -->
-  <footer class="w-full bg-[#35235c] pt-12 pb-7 px-4 mt-14 flex flex-col items-center fade-in">
+  <footer class="w-full bg-pink-900 pt-12 pb-7 px-4 mt-14 flex flex-col items-center fade-in">
     <h2 class="text-2xl text-white font-semibold mb-4">Contacto Directo</h2>
-    <p class="text-lg text-[#efdefe] mb-6">¡Habla con <span class="font-bold">Yesica Yelcich</span> para pedidos, asesoría o más información!</p>
+    <p class="text-lg text-pink-200 mb-6">¡Habla con <span class="font-bold">Yesica Yelcich</span> para pedidos, asesoría o más información!</p>
     <div class="flex flex-col md:flex-row gap-6 items-center justify-center mb-6">
       <a 
         href="https://wa.me/543487524719?text=Hola%20Yesica%2C%20quiero%20info%20sobre%20perfumes%20Bagués"
@@ -103,12 +105,12 @@
       </a>
       <a 
         href="mailto:yesicayelcich@gmail.com"
-        class="flex items-center gap-2 bg-[#6e42d8] hover:bg-[#3f2569] text-white px-6 py-3 rounded-full font-semibold shadow-lg text-lg transition"
+        class="flex items-center gap-2 bg-pink-600 hover:bg-pink-800 text-white px-6 py-3 rounded-full font-semibold shadow-lg text-lg transition"
       >
         <span>Correo electrónico</span>
       </a>
     </div>
-    <p class="text-[#a17cfc] text-sm text-center">© 2024 Perfumes Bagués por Yesica Yelcich</p>
+    <p class="text-pink-300 text-sm text-center">© 2024 Perfumes Bagués por Yesica Yelcich</p>
   </footer>
 
 <script>
@@ -118,4 +120,3 @@ document.getElementById("verCatalogoBtn").addEventListener("click", function() {
 </script>
 </body>
 </html>
-
