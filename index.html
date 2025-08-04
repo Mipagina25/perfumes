@@ -15,15 +15,10 @@
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
       backdrop-filter: blur(7px);
       border-radius: 1rem;
-      color: black; /* Para que los textos en las tarjetas sigan legibles */
+      color: black;
     }
-    .fade-in {
-      animation: fadeIn 1s ease;
-    }
-    @keyframes fadeIn {
-      0% {opacity: 0;}
-      100% {opacity: 1;}
-    }
+    .fade-in { animation: fadeIn 1s ease; }
+    @keyframes fadeIn { 0% {opacity: 0;} 100% {opacity: 1;} }
   </style>
 </head>
 <body class="min-h-screen flex flex-col items-center">
@@ -111,6 +106,12 @@
         <span>Correo electrónico</span>
       </a>
     </div>
+
+    <!-- Contador de visitas -->
+    <p class="text-pink-300 text-sm text-center mt-4">
+      Visitantes únicos: <span id="contador">0</span>
+    </p>
+
     <p class="text-pink-300 text-sm text-center">© 2025 Perfumes Bagués por Yesica Yelcich</p>
   </footer>
 
@@ -118,6 +119,20 @@
 document.getElementById("verCatalogoBtn").addEventListener("click", function() {
   document.getElementById("catalogoOpciones").classList.remove("hidden");
 });
+
+// Contador de visitantes únicos usando localStorage
+let contador = localStorage.getItem("visitanteContado");
+let totalVisitas = localStorage.getItem("totalVisitas") || 0;
+
+// Si no está contado en este navegador, sumamos 1
+if (!contador) {
+  totalVisitas++;
+  localStorage.setItem("totalVisitas", totalVisitas);
+  localStorage.setItem("visitanteContado", "true");
+}
+
+document.getElementById("contador").textContent = totalVisitas;
 </script>
 </body>
 </html>
+
