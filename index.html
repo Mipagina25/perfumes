@@ -7,13 +7,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-color: magenta;
-      color: white; /* Para que el texto sea legible */
+      background: linear-gradient(135deg, #ec4899, #db2777, #7e22ce);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
     }
     .glass {
-      background: rgba(255,255,255,0.68);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
-      backdrop-filter: blur(7px);
+      background: rgba(255,255,255,0.75);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+      backdrop-filter: blur(8px);
       border-radius: 1rem;
       color: black;
     }
@@ -24,7 +25,7 @@
 <body class="min-h-screen flex flex-col items-center">
 
   <!-- Header/Hero -->
-  <section class="w-full relative flex flex-col items-center justify-center py-10 bg-pink-700 shadow-lg">
+  <section class="w-full relative flex flex-col items-center justify-center py-12 bg-gradient-to-r from-pink-700 via-pink-500 to-purple-600 shadow-lg">
     <h1 class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4 fade-in tracking-tight">Perfumes Bagués</h1>
     <p class="text-xl md:text-2xl text-white font-light mb-2 fade-in">Fragancias internacionales y exclusivas</p>
     <p class="text-md text-white">by Yesica Yelcich</p>
@@ -37,7 +38,7 @@
   </section>
 
   <!-- Catálogo Opciones -->
-  <div id="catalogoOpciones" class="fixed top-0 left-0 z-40 w-full h-full flex items-center justify-center bg-black bg-opacity-30 hidden fade-in">
+  <div id="catalogoOpciones" class="fixed top-0 left-0 z-40 w-full h-full flex items-center justify-center bg-black bg-opacity-40 hidden fade-in">
     <div class="glass p-8 flex flex-col items-center gap-6 shadow-xl relative min-w-[320px]">
       <h2 class="text-2xl font-bold text-black mb-4">Elige una opción</h2>
       <a href="https://catalogo.bagues.net/C0825/page/1" target="_blank" class="px-6 py-3 rounded-lg bg-pink-600 text-white font-semibold hover:bg-pink-800 transition text-lg w-full text-center mb-2">Ver Catálogo Completo</a>
@@ -55,7 +56,7 @@
     <div class="grid md:grid-cols-3 gap-10">
 
       <!-- Marsella -->
-      <div class="glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105">
+      <div class="glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105 hover:shadow-pink-500/40">
         <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c55dc3f9-d609-4971-9b79-fb7d6e5e3243.png" 
           alt="Perfume Bagués Marsella" 
           class="mb-4 w-48 h-56 object-cover rounded-md bg-gray-200"
@@ -65,7 +66,7 @@
       </div>
 
       <!-- Milán -->
-      <div class="glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105">
+      <div class="glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105 hover:shadow-pink-500/40">
         <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2df4e0cc-d42f-4c21-baba-a1565390c572.png"
           alt="Perfume Bagués Milán" 
           class="mb-4 w-48 h-56 object-cover rounded-md bg-gray-200"
@@ -75,7 +76,7 @@
       </div>
 
       <!-- Mykonos -->
-      <div class="glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105">
+      <div class="glass p-6 rounded-lg flex flex-col items-center shadow-lg transition hover:scale-105 hover:shadow-pink-500/40">
         <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/10bf1c85-0ac3-4568-803b-4c48ec0d5943.png"
           alt="Perfume Bagués Mykonos" 
           class="mb-4 w-48 h-56 object-cover rounded-md bg-gray-200"
@@ -87,7 +88,7 @@
   </main>
 
   <!-- Contact -->
-  <footer class="w-full bg-pink-900 pt-12 pb-7 px-4 mt-14 flex flex-col items-center fade-in">
+  <footer class="w-full bg-gradient-to-r from-pink-900 to-purple-800 pt-12 pb-7 px-4 mt-14 flex flex-col items-center fade-in">
     <h2 class="text-2xl text-white font-semibold mb-4">Contacto Directo</h2>
     <p class="text-lg text-pink-200 mb-6">¡Habla con <span class="font-bold">Yesica Yelcich</span> para pedidos, asesoría o más información!</p>
     <div class="flex flex-col md:flex-row gap-6 items-center justify-center mb-6">
@@ -106,32 +107,13 @@
         <span>Correo electrónico</span>
       </a>
     </div>
-
-    <!-- Contador de visitas -->
-    <p class="text-pink-300 text-sm text-center mt-4">
-      Visitantes únicos: <span id="contador">0</span>
-    </p>
-
-    <p class="text-pink-300 text-sm text-center">© 2025 Perfumes Bagués por Yesica Yelcich</p>
+    <p class="text-pink-300 text-sm text-center mt-4">© 2025 Perfumes Bagués por Yesica Yelcich</p>
   </footer>
 
 <script>
 document.getElementById("verCatalogoBtn").addEventListener("click", function() {
   document.getElementById("catalogoOpciones").classList.remove("hidden");
 });
-
-// Contador de visitantes únicos usando localStorage
-let contador = localStorage.getItem("visitanteContado");
-let totalVisitas = localStorage.getItem("totalVisitas") || 0;
-
-// Si no está contado en este navegador, sumamos 1
-if (!contador) {
-  totalVisitas++;
-  localStorage.setItem("totalVisitas", totalVisitas);
-  localStorage.setItem("visitanteContado", "true");
-}
-
-document.getElementById("contador").textContent = totalVisitas;
 </script>
 </body>
 </html>
